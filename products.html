@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Stitches - Dress Gallery & Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .gallery-img { transition: all 0.5s ease; cursor: pointer; }
+        .gallery-img:hover { transform: scale(1.03); filter: brightness(1.02); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.2); }
+        .modal-bg { transition: 0.2s; }
+        .category-btn.active { background-color: #fca726; color: #0440b0; border-color: #fca726; }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp float -->
+    <a href="https://wa.me/917826085333?text=I%20love%20your%20designs!%20Can%20I%20order%20similar%20dress?" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center flex-wrap">
+            <div class="flex items-center gap-2"><i class="fas fa-needle text-3xl text-[#0440b0]"></i><span class="text-2xl font-bold playfair text-[#0440b0]">Golden<span class="text-[#fca726]">Stitches</span></span></div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-[#0440b0]">Home</a>
+                <a href="services.html" class="hover:text-[#0440b0]">Services</a>
+                <a href="products.html" class="text-[#0440b0] border-b-2 border-[#fca726] pb-1">Gallery</a>
+            </div>
+            <a href="https://wa.me/917826085333" class="bg-[#0440b0] text-white px-5 py-2 rounded-full text-sm"><i class="fab fa-whatsapp mr-1"></i> Order via WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- Gallery Header -->
+    <section class="bg-gradient-to-r from-[#022a70] to-[#0440b0] text-white py-12 text-center">
+        <h1 class="text-5xl playfair font-bold" data-aos="fade-up">Our Stitched Gallery</h1>
+        <p class="text-lg mt-2 opacity-90" data-aos="fade-up">Explore real designs — blouses, suits, lehengas, kids wear & embroidery magic</p>
+    </section>
+
+    <!-- Filter Buttons (optional but nice) -->
+    <div class="flex flex-wrap justify-center gap-3 py-8 bg-gray-50">
+        <button class="category-btn active px-5 py-2 rounded-full border border-[#fca726] text-[#0440b0] font-semibold transition-all" data-filter="all">All Designs</button>
+        <button class="category-btn px-5 py-2 rounded-full border border-gray-300 hover:border-[#fca726] transition" data-filter="blouse">Saree Blouses</button>
+        <button class="category-btn px-5 py-2 rounded-full border border-gray-300 hover:border-[#fca726] transition" data-filter="punjabi">Punjabi Suits</button>
+        <button class="category-btn px-5 py-2 rounded-full border border-gray-300 hover:border-[#fca726] transition" data-filter="wedding">Wedding Wear</button>
+        <button class="category-btn px-5 py-2 rounded-full border border-gray-300 hover:border-[#fca726] transition" data-filter="kids">Kids Dresses</button>
+        <button class="category-btn px-5 py-2 rounded-full border border-gray-300 hover:border-[#fca726] transition" data-filter="embroidery">Embroidery/Aari</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <section class="py-10 px-5 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="galleryGrid">
+            <!-- Each image has data-category -->
+            <div data-category="blouse" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1621609764095-b32bbe35a3d4?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Designer blouse"></div>
+            <div data-category="blouse" class="gallery-item" data-aos="zoom-in" data-aos-delay="50"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Silk saree blouse"></div>
+            <div data-category="punjabi" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Punjabi suit design"></div>
+            <div data-category="wedding" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Wedding lehenga"></div>
+            <div data-category="kids" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1545062921-3abaa3b9a48a?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Kids frock"></div>
+            <div data-category="embroidery" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1583391733956-6c1828f9988a?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Aari work blouse"></div>
+            <div data-category="punjabi" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Designer Punjabi suit"></div>
+            <div data-category="wedding" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Bridal dress"></div>
+            <div data-category="blouse" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1612031576186-d0c743bc98fe?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Backless blouse"></div>
+            <div data-category="embroidery" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1595425970375-b5fcdb1ae5ae?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Heavy embroidery dress"></div>
+            <div data-category="kids" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1574192323999-d9c2df180c16?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Children's lehenga"></div>
+            <div data-category="wedding" class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?w=600&auto=format" class="gallery-img w-full h-72 object-cover rounded-xl shadow-lg" alt="Bridal gown"></div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal (simple) -->
+    <div id="imageModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50 p-4" onclick="closeModal()">
+        <img id="modalImg" class="max-w-full max-h-screen rounded-xl shadow-2xl" src="">
+        <button onclick="closeModal()" class="absolute top-6 right-8 text-white text-4xl">&times;</button>
+    </div>
+
+    <!-- Call to action after gallery -->
+    <section class="py-16 bg-white text-center">
+        <div class="container mx-auto px-5" data-aos="fade-up">
+            <h2 class="text-3xl playfair font-bold">Loved any design? Get it stitched exactly for you!</h2>
+            <p class="text-gray-500 mt-2 mb-6">Share reference image & measurements on WhatsApp — we'll bring it to life.</p>
+            <a href="https://wa.me/917826085333?text=I%20saw%20a%20design%20on%20your%20gallery%20and%20want%20the%20same%20stitched" class="bg-[#0440b0] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 shadow-lg hover:bg-[#022c6e] transition"><i class="fab fa-whatsapp text-xl"></i> Order Custom Stitch</a>
+        </div>
+    </section>
+
+    <!-- Social Feed + Contact -->
+    <section class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto text-center px-5">
+            <div class="flex justify-center gap-8 text-4xl mb-5">
+                <a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="hover:text-pink-400"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="hover:text-blue-400"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/917826085333" class="hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>📞 Call us: <a href="tel:+917826085333" class="text-[#fca726]">+91 78260 85333</a> | 📍 24 Kilvelur-Katchanam Road, Tamil Nadu</p>
+            <p class="text-sm text-gray-400 mt-4">Follow us for daily design inspiration & offers</p>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-500 text-center py-5 text-sm">© Golden Stitches — Where tradition meets modern elegance.</footer>
+
+    <script>
+        // Gallery filtering
+        const btns = document.querySelectorAll('.category-btn');
+        const items = document.querySelectorAll('.gallery-item');
+        
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                btns.forEach(b => b.classList.remove('active', 'bg-[#fca726]', 'text-[#0440b0]', 'border-[#fca726]'));
+                btn.classList.add('active', 'bg-[#fca726]', 'text-[#0440b0]', 'border-[#fca726]');
+                items.forEach(item => {
+                    if(filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox modal
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', (e) => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                e.stopPropagation();
+            });
+        });
+        function closeModal() { modal.style.display = 'none'; }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init({ duration: 700, once: true }); </script>
+</body>
+</html>
