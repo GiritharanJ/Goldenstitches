@@ -4,244 +4,999 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Golden Stitches | Tailor & Boutique</title>
-    <!-- Tailwind CSS + Google Fonts + Font Awesome -->
-    <link rel="stylesheet" href="./tailwind.min.css">
+    <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        * { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .playfair { font-family: 'Playfair Display', serif; }
-        body { background: #fefcf8; }
-        .gold-gradient { background: linear-gradient(135deg, #fca726 0%, #e69500 100%); }
-        .nav-active { border-bottom: 2px solid #fca726; color: #0440b0 !important; }
-        .btn-wa { background-color: #25D366; transition: all 0.3s ease; }
-        .btn-wa:hover { background-color: #1da15a; transform: scale(1.02); box-shadow: 0 10px 20px -5px rgba(37,211,102,0.4); }
-        .btn-gold { background: #fca726; transition: all 0.3s ease; }
-        .btn-gold:hover { background: #e69500; transform: translateY(-2px); box-shadow: 0 15px 25px -10px rgba(252,167,38,0.5); }
-        .service-card, .gallery-item { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15); }
-        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2); cursor: pointer; }
-        .floating-wa { position: fixed; bottom: 30px; right: 30px; z-index: 999; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('images/hero.jpg'); background-size: cover; background-position: center 30%; }
-        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-up { animation: fadeSlideUp 0.8s ease-out forwards; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefcf8;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* ========== SMOOTH SCROLLING ========== */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ========== ANIMATION KEYFRAMES ========== */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeSlideLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeSlideRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(-10deg) scale(0.9); }
+            to { opacity: 1; transform: rotate(0) scale(1); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+        
+        @keyframes reveal {
+            0% { clip-path: inset(0 100% 0 0); }
+            100% { clip-path: inset(0 0 0 0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* ========== ANIMATION CLASSES ========== */
+        .animate-fade-up {
+            animation: fadeSlideUp 0.8s ease-out forwards;
+        }
+        
+        .animate-fade-left {
+            animation: fadeSlideLeft 0.8s ease-out forwards;
+        }
+        
+        .animate-fade-right {
+            animation: fadeSlideRight 0.8s ease-out forwards;
+        }
+        
+        .animate-zoom {
+            animation: zoomIn 0.8s ease-out forwards;
+        }
+        
+        .animate-rotate {
+            animation: rotateIn 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+            color: #0440b0;
+        }
+        
+        .logo span {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            color: #0440b0;
+        }
+        
+        .logo span span {
+            color: #fca726;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #0440b0;
+        }
+        
+        .nav-active {
+            border-bottom: 2px solid #fca726;
+            color: #0440b0 !important;
+            padding-bottom: 4px;
+        }
+        
+        .btn-wa-nav {
+            background: #25D366;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-wa-nav:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+        }
+        
+        .btn-call-nav {
+            background: #0440b0;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-call-nav:hover {
+            transform: scale(1.05);
+            background: #03338a;
+        }
+        
+        /* ========== HERO SECTION with PARALLAX ========== */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero-badge {
+            background: rgba(252, 167, 38, 0.9);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: black;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: white;
+        }
+        
+        .hero h1 span {
+            color: #fca726;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-wa:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #0440b0;
+            transform: translateY(-2px);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2s infinite;
+            color: white;
+            font-size: 24px;
+        }
+        
+        /* ========== SECTION STYLES ========== */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-light {
+            background: #fef8f0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title span {
+            color: #fca726;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            color: #1f2937;
+            margin-top: 8px;
+        }
+        
+        .section-title p {
+            color: #6b7280;
+            max-width: 600px;
+            margin: 16px auto 0;
+        }
+        
+        /* ========== GRID SYSTEMS ========== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        /* ========== SERVICE CARDS with FLIP EFFECT ========== */
+        .service-card {
+            background: #f9fafb;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px) rotateX(2deg);
+            box-shadow: 0 30px 40px -12px rgba(0,0,0,0.2);
+        }
+        
+        .service-card .card-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .service-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        /* Image shine effect on hover */
+        .service-card .card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover .card-img::after {
+            left: 100%;
+        }
+        
+        .service-card-content {
+            padding: 24px;
+        }
+        
+        .service-card-content i {
+            font-size: 32px;
+            color: #0440b0;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-card-content i {
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .service-card-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .service-card-content p {
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        
+        .wa-link {
+            color: #fca726;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .wa-link:hover {
+            gap: 12px;
+            color: #e69500;
+        }
+        
+        /* ========== GALLERY ITEMS with ZOOM & REVEAL ========== */
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height: 300px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-item::before {
+            content: '🔍';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 40px;
+            color: white;
+            background: rgba(0,0,0,0.6);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2;
+            opacity: 0;
+        }
+        
+        .gallery-item:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        /* ========== FEATURE LIST ========== */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .feature {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateX(8px);
+        }
+        
+        .feature i {
+            color: #fca726;
+            font-size: 28px;
+        }
+        
+        .testimonial {
+            background: #0440b0;
+            color: white;
+            padding: 40px;
+            border-radius: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(4,64,176,0.3);
+        }
+        
+        .testimonial i {
+            font-size: 48px;
+            color: #fca726;
+            opacity: 0.7;
+        }
+        
+        .stars {
+            color: #fca726;
+            margin-top: 20px;
+        }
+        
+        /* ========== CONTACT SECTION ========== */
+        .bg-dark {
+            background: #111827;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .contact-card {
+            background: #1f2937;
+            padding: 28px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            background: #2d3a4e;
+        }
+        
+        .contact-card i {
+            font-size: 36px;
+            color: #fca726;
+            margin-bottom: 12px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 32px;
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .social-links a:hover .fa-instagram { color: #e4405f; }
+        .social-links a:hover .fa-facebook { color: #1877f2; }
+        .social-links a:hover .fa-whatsapp { color: #25D366; }
+        
+        /* ========== FLOATING WHATSAPP BUTTON ========== */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            padding: 18px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 999;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .floating-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37,211,102,0.4);
+        }
+        
+        .floating-wa i {
+            font-size: 28px;
+        }
+        
+        /* ========== BUTTON STYLES ========== */
+        .btn-gold {
+            background: #fca726;
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-gold:hover {
+            background: #e69500;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(252,167,38,0.3);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid #0440b0;
+            color: #0440b0;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: #0440b0;
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            background: black;
+            color: #9ca3af;
+            text-align: center;
+            padding: 24px;
+            font-size: 14px;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 36px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .grid-gallery { grid-template-columns: 1fr; }
+            .section-title h2 { font-size: 32px; }
+            .section { padding: 50px 0; }
+        }
+        
+        /* ========== SCROLL REVEAL CLASSES (AOS alternative) ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Image reveal animation */
+        .image-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-reveal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fca726;
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+            z-index: 1;
+        }
+        
+        .image-reveal.revealed::before {
+            transform: translateX(100%);
+        }
+        
+        /* Map iframe */
+        .map-iframe {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            height: 300px;
+            border: none;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services." target="_blank" class="floating-wa inline-block bg-green-500 text-white p-4 rounded-full shadow-2xl">
-        <i class="fab fa-whatsapp text-3xl"></i>
+    <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services." target="_blank" class="floating-wa">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Navigation -->
-    <!-- Navigation -->
-    <nav class="bg-white/02 backdrop-blur-sm shadow-sm top-0 z-50 border-b border-gray-100">
-        <div class="container mx-auto px-5 md:px-10 py-4 flex justify-between items-center flex-wrap">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-needle text-3xl text-[#0440b0]"></i>
-               <span class="text-2xl font-bold playfair text-[#0440b0] drop-shadow">
-Golden<span class="text-[#fca726]">Stitches</span>
-</span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-needle"></i>
+                <span>Golden<span>Stitches</span></span>
             </div>
-            <div class="hidden md:flex space-x-8 text-gray-700 font-medium">
-                <a href="index.html" class="nav-active pb-1">Home</a>
-                <a href="services.html" class="hover:text-[#0440b0] transition">Services</a>
-                <a href="products.html" class="hover:text-[#0440b0] transition">Gallery</a>
-            </div>
-            <div class="flex space-x-3">
-                <a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="text-gray-600 hover:text-pink-500 text-xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="text-gray-600 hover:text-blue-700 text-xl"><i class="fab fa-facebook"></i></a>
-                 <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services"
-         target="_blank"
-         class="bg-green-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow hover:bg-green-600 transition">
-         WhatsApp Now
-      </a>
-                <a href="tel:+917826085333" class="bg-[#0440b0] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hidden sm:inline-block">Call Now</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="products.html">Gallery</a>
+                <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services" target="_blank" class="btn-wa-nav">WhatsApp Now</a>
+                <a href="tel:+917826085333" class="btn-call-nav">Call Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-bg h-screen min-h-[650px] flex items-center relative">
-        <div class="container mx-auto px-6 md:px-12 text-white">
-            <div class="max-w-2xl">
-                <span class="inline-block bg-[#fca726]/90 text-black px-4 py-1 rounded-full text-sm font-semibold tracking-wide mb-4 animate-fade-up">✨ Since 2022</span>
-                <h1 class="text-5xl md:text-7xl font-bold playfair mb-5 leading-tight animate-fade-up delay-100">Custom Tailoring <br> for <span class="text-[#fca726]">Elegant Women</span></h1>
-                <p class="text-lg md:text-xl text-gray-100 mb-8 animate-fade-up delay-200">Perfect Fit • Modern Designs • Traditional Craftsmanship. Stitched just for you.</p>
-                <div class="flex flex-wrap gap-5 animate-fade-up delay-300">
-                    <a href="https://wa.me/917826085333?text=I'd%20like%20to%20book%20a%20tailoring%20service" target="_blank" class="btn-wa text-white px-7 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg"><i class="fab fa-whatsapp text-xl"></i> 📲 WhatsApp Order</a>
-                    <a href="products.html" class="border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white hover:text-[#0440b0] transition-all flex items-center gap-2"><i class="fas fa-tshirt"></i> 👗 View Designs</a>
+    <!-- Hero Section with Parallax -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-up">✨ Since 2022</div>
+                <h1 class="animate-fade-left delay-100">Custom Tailoring <br> for <span>Elegant Women</span></h1>
+                <p class="animate-fade-right delay-200">Perfect Fit • Modern Designs • Traditional Craftsmanship. Stitched just for you.</p>
+                <div class="btn-group animate-fade-up delay-300">
+                    <a href="https://wa.me/917826085333?text=I'd%20like%20to%20book%20a%20tailoring%20service" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> 📲 WhatsApp Order</a>
+                    <a href="products.html" class="btn-outline"><i class="fas fa-tshirt"></i> 👗 View Designs</a>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
-            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- Services Preview Section -->
-    <section class="py-20 px-5 bg-white">
-        <div class="container mx-auto text-center max-w-5xl">
-            <div data-aos="fade-up">
-                <span class="text-[#fca726] font-semibold tracking-wider">WHAT WE OFFER</span>
-                <h2 class="text-4xl md:text-5xl playfair font-bold text-gray-800 mt-2 mb-6">Our Premium Services</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto mb-12">Expert craftsmanship for every occasion — from daily wear to wedding glamour.</p>
+    <section class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>WHAT WE OFFER</span>
+                <h2>Our Premium Services</h2>
+                <p>Expert craftsmanship for every occasion — from daily wear to wedding glamour.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid-3">
+                <!-- Service Card 1 -->
+                <div class="service-card reveal-scale" style="transition-delay: 0.1s">
+                    <div class="card-img">
+                        <img src="images/womentops.jpg" alt="Women's Tops">
+                    </div>
+                    <div class="service-card-content">
+                        <i class="fas fa-female"></i>
+                        <h3>Women's Tops & Blouses</h3>
+                        <p>Tailored to your exact measurements, latest patterns & designer cuts.</p>
+                        <a href="https://wa.me/917826085333?text=I'm%20interested%20in%20Women's%20Tops" target="_blank" class="wa-link">Enquire on WhatsApp <i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
 
-<!-- Service Card 1 -->
-<div data-aos="fade-up" data-aos-delay="100" class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-md">
-    <div class="h-52 overflow-hidden">
-        <img src="images/womentops.jpg" class="w-full h-full object-cover" alt="Women's Tops">
-    </div>
-    <div class="p-6 text-left">
-        <i class="fas fa-female text-3xl text-[#0440b0] mb-3"></i>
-        <h3 class="text-xl font-bold">Women’s Tops & Blouses</h3>
-        <p class="text-gray-500 text-sm mt-2">Tailored to your exact measurements, latest patterns & designer cuts.</p>
-        <a href="https://wa.me/917826085333?text=I'm%20interested%20in%20Women's%20Tops" target="_blank" class="inline-flex items-center text-[#fca726] font-semibold mt-4 hover:gap-2 transition-all gap-1">
-            Enquire on WhatsApp <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-</div>
+                <!-- Service Card 2 -->
+                <div class="service-card reveal-scale" style="transition-delay: 0.2s">
+                    <div class="card-img">
+                        <img src="images/aariwork.jpg" alt="Saree Blouses & Aari Work">
+                    </div>
+                    <div class="service-card-content">
+                        <i class="fas fa-saree"></i>
+                        <h3>Saree Blouses & Aari Work</h3>
+                        <p>Intricate Aari, embroidery, designer backs — perfect wedding touch.</p>
+                        <a href="https://wa.me/917826085333?text=Saree%20blouse%20stitching%20inquiry" target="_blank" class="wa-link">Enquire on WhatsApp <i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
 
-<!-- Service Card 2 -->
-<div data-aos="fade-up" data-aos-delay="200" class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-md">
-    <div class="h-52 overflow-hidden">
-        <img src="images/aariwork.jpg" class="w-full h-full object-cover" alt="Saree Blouses & Aari Work">
-    </div>
-    <div class="p-6 text-left">
-        <i class="fas fa-saree text-3xl text-[#0440b0] mb-3"></i>
-        <h3 class="text-xl font-bold">Saree Blouses & Aari Work</h3>
-        <p class="text-gray-500 text-sm mt-2">Intricate Aari, embroidery, designer backs — perfect wedding touch.</p>
-        <a href="https://wa.me/917826085333?text=Saree%20blouse%20stitching%20inquiry" target="_blank" class="inline-flex items-center text-[#fca726] font-semibold mt-4 hover:gap-2 transition-all gap-1">
-            Enquire on WhatsApp <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-</div>
-
-<!-- Service Card 3 -->
-<div data-aos="fade-up" data-aos-delay="300" class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-md">
-    <div class="h-52 overflow-hidden">
-        <img src="images/punjabisuit.jpg" class="w-full h-full object-cover" alt="Punjabi Suits">
-    </div>
-    <div class="p-6 text-left">
-        <i class="fas fa-dharmachakra text-3xl text-[#0440b0] mb-3"></i>
-        <h3 class="text-xl font-bold">Punjabi Suits & Dresses</h3>
-        <p class="text-gray-500 text-sm mt-2">Latest Patiala, straight-cut, floor-length suits with exquisite finish.</p>
-        <a href="https://wa.me/917826085333?text=Punjabi%20suit%20order" target="_blank" class="inline-flex items-center text-[#fca726] font-semibold mt-4 hover:gap-2 transition-all gap-1">
-            Enquire on WhatsApp <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-</div>
-
-
-                
+                <!-- Service Card 3 -->
+                <div class="service-card reveal-scale" style="transition-delay: 0.3s">
+                    <div class="card-img">
+                        <img src="images/punjabisuit.jpg" alt="Punjabi Suits">
+                    </div>
+                    <div class="service-card-content">
+                        <i class="fas fa-dharmachakra"></i>
+                        <h3>Punjabi Suits & Dresses</h3>
+                        <p>Latest Patiala, straight-cut, floor-length suits with exquisite finish.</p>
+                        <a href="https://wa.me/917826085333?text=Punjabi%20suit%20order" target="_blank" class="wa-link">Enquire on WhatsApp <i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="services.html" class="btn-gold text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 shadow-md">View All Services <i class="fas fa-arrow-right"></i></a>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="services.html" class="btn-gold">View All Services <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Preview (3 columns) -->
-    <section class="py-20 px-5 bg-[#fef8f0]">
-        <div class="container mx-auto">
-            <div data-aos="fade-up" class="text-center">
-                <span class="text-[#fca726] font-semibold">OUR STITCHED ART</span>
-                <h2 class="text-4xl md:text-5xl playfair font-bold text-gray-800 mt-2 mb-4">Recent Masterpieces</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto mb-12">Real designs stitched for our lovely customers — quality you can see.</p>
+    <!-- Gallery Preview Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>OUR STITCHED ART</span>
+                <h2>Recent Masterpieces</h2>
+                <p>Real designs stitched for our lovely customers — quality you can see.</p>
             </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-  <div data-aos="zoom-in" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72">
-    <img src="images/blouse.jpg" class="w-full h-full object-cover" alt="Blouse design">
-  </div>
-
-  <div data-aos="zoom-in" data-aos-delay="100" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72">
-    <img src="images/wedding.jpg" class="w-full h-full object-cover" alt="Wedding dress">
-  </div>
-
-  <div data-aos="zoom-in" data-aos-delay="200" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72">
-    <img src="images/kids.jpg" class="w-full h-full object-cover" alt="Kids dress">
-  </div>
-
-  <div data-aos="zoom-in" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72">
-    <img src="images/aari.jpg" class="w-full h-full object-cover" alt="Aari work">
-  </div>
-
-  <div data-aos="zoom-in" data-aos-delay="100" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72">
-    <img src="images/punjabi.jpg" class="w-full h-full object-cover" alt="Punjabi suit">
-  </div>
-
-  <div data-aos="zoom-in" data-aos-delay="200" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72">
-    <img src="images/embroidery.jpg" class="w-full h-full object-cover" alt="Embroidered dress">
-  </div>
-
-</div>
-            <div class="text-center mt-10">
-                <a href="products.html" class="border-2 border-[#0440b0] text-[#0440b0] px-8 py-3 rounded-full font-semibold hover:bg-[#0440b0] hover:text-white transition-all inline-flex items-center gap-2">Explore Full Gallery <i class="fas fa-images"></i></a>
+            <div class="grid-gallery">
+                <div class="gallery-item reveal-scale" style="transition-delay: 0.1s">
+                    <img src="images/blouse.jpg" alt="Blouse design">
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay: 0.2s">
+                    <img src="images/wedding.jpg" alt="Wedding dress">
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay: 0.3s">
+                    <img src="images/kids.jpg" alt="Kids dress">
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay: 0.4s">
+                    <img src="images/aari.jpg" alt="Aari work">
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay: 0.5s">
+                    <img src="images/punjabi.jpg" alt="Punjabi suit">
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay: 0.6s">
+                    <img src="images/embroidery.jpg" alt="Embroidered dress">
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="products.html" class="btn-outline-primary">Explore Full Gallery <i class="fas fa-images"></i></a>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us + Testimonials -->
-    <section class="py-20 px-5 bg-white">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <span class="text-[#fca726] font-semibold">WHY WE SHINE</span>
-                    <h2 class="text-4xl playfair font-bold text-gray-800 mt-2 mb-6">Perfect Fit, Timeless Craft</h2>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Perfect fitting guarantee</h4><p class="text-gray-500">Two trial fittings & precision measurements.</p></div></div>
-                        <div class="flex items-start gap-3"><i class="fas fa-scroll text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Experienced Master Tailor</h4><p class="text-gray-500">10+ years of boutique & bridal tailoring.</p></div></div>
-                        <div class="flex items-start gap-3"><i class="fas fa-rupee-sign text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Affordable Luxury</h4><p class="text-gray-500">Premium quality at budget-friendly prices.</p></div></div>
-                        <div class="flex items-start gap-3"><i class="fas fa-palette text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Custom Design Support</h4><p class="text-gray-500">Bring any reference photo — we stitch it.</p></div></div>
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="reveal-left">
+                    <span style="color: #fca726; font-weight: 600;">WHY WE SHINE</span>
+                    <h2 style="font-size: 40px; margin: 16px 0; font-family: 'Playfair Display', serif;">Perfect Fit, Timeless Craft</h2>
+                    <div class="feature-list">
+                        <div class="feature"><i class="fas fa-check-circle"></i><div><strong>Perfect fitting guarantee</strong><p style="color: #6b7280;">Two trial fittings & precision measurements.</p></div></div>
+                        <div class="feature"><i class="fas fa-scroll"></i><div><strong>Experienced Master Tailor</strong><p style="color: #6b7280;">10+ years of boutique & bridal tailoring.</p></div></div>
+                        <div class="feature"><i class="fas fa-rupee-sign"></i><div><strong>Affordable Luxury</strong><p style="color: #6b7280;">Premium quality at budget-friendly prices.</p></div></div>
+                        <div class="feature"><i class="fas fa-palette"></i><div><strong>Custom Design Support</strong><p style="color: #6b7280;">Bring any reference photo — we stitch it.</p></div></div>
                     </div>
                 </div>
-                <div data-aos="fade-left" class="bg-[#0440b0] text-white p-8 rounded-3xl shadow-2xl">
-                    <i class="fas fa-quote-left text-4xl text-[#fca726] opacity-70"></i>
-                    <p class="text-xl italic mt-4 mb-6">"Golden Stitches gave me the most stunning wedding lehenga! The fitting was perfect and the Aari work was beyond my expectations. Highly recommended!"</p>
-                    <div class="flex items-center gap-3"><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><span class="ml-2 font-medium">— Priyadarshini R.</span></div>
+                <div class="testimonial reveal-right">
+                    <i class="fas fa-quote-left"></i>
+                    <p style="font-size: 20px; margin: 20px 0;">"Golden Stitches gave me the most stunning wedding lehenga! The fitting was perfect and the Aari work was beyond my expectations. Highly recommended!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span style="margin-left: 10px;">— Priyadarshini R.</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact & Social Section -->
-    <section class="py-16 px-5 bg-gray-900 text-white">
-        <div class="container mx-auto max-w-5xl text-center">
-            <div data-aos="fade-up">
-                <h2 class="text-4xl playfair font-bold mb-6">Stitch Your Style Today</h2>
-                <p class="text-gray-300 mb-10">Visit our studio or reach out on WhatsApp — we’re just a message away.</p>
-                <div class="flex flex-wrap justify-center gap-6 mb-12">
-                    <div class="bg-gray-800 p-5 rounded-2xl w-64"><i class="fas fa-map-marker-alt text-[#fca726] text-2xl mb-2 block"></i><p class="font-semibold">Address</p><p class="text-sm text-gray-300">24 Kilvelur-Katchanam Road, Tamil Nadu, India</p></div>
-                    <div class="bg-gray-800 p-5 rounded-2xl w-64"><i class="fas fa-phone-alt text-[#fca726] text-2xl mb-2 block"></i><p class="font-semibold">Call / WhatsApp</p><p class="text-sm">+91 78260 85333</p></div>
-                    <div class="bg-gray-800 p-5 rounded-2xl w-64"><i class="fab fa-whatsapp text-[#25D366] text-2xl mb-2 block"></i><p class="font-semibold">WhatsApp Chat</p><a href="https://wa.me/917826085333" class="text-sm text-[#fca726]">Click to message →</a></div>
+    <section class="bg-dark" style="padding: 60px 0;">
+        <div class="container">
+            <div style="text-align: center;" class="reveal">
+                <h2 style="font-size: 40px; font-family: 'Playfair Display', serif; margin-bottom: 16px;">Stitch Your Style Today</h2>
+                <p style="margin-bottom: 40px;">Visit our studio or reach out on WhatsApp — we're just a message away.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card reveal-scale" style="transition-delay: 0.1s">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Address</h4>
+                    <p>24 Kilvelur-Katchanam Road, Tamil Nadu, India</p>
                 </div>
-                <div class="flex justify-center space-x-6 text-3xl">
-                    <a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="hover:text-pink-400 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-facebook"></i></a>
-                    <a href="https://wa.me/917826085333" class="hover:text-green-400 transition"><i class="fab fa-whatsapp"></i></a>
+                <div class="contact-card reveal-scale" style="transition-delay: 0.2s">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Call / WhatsApp</h4>
+                    <p>+91 78260 85333</p>
                 </div>
-                <div class="mt-10">
-                    <iframe class="w-full max-w-3xl mx-auto rounded-xl h-64" src="https://maps.google.com/maps?q=Kilvelur-Katchanam%20Road%2C%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                <div class="contact-card reveal-scale" style="transition-delay: 0.3s">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>WhatsApp Chat</h4>
+                    <a href="https://wa.me/917826085333" style="color: #fca726;">Click to message →</a>
                 </div>
+            </div>
+            <div class="social-links reveal">
+                <a href="https://www.instagram.com/golden_stitches2022/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/917826085333" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="reveal-scale">
+                <iframe class="map-iframe" src="https://maps.google.com/maps?q=Kilvelur-Katchanam%20Road%2C%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black text-gray-400 py-8 text-center text-sm">
+    <footer class="footer">
         <p>© 2025 Golden Stitches Tailor & Boutique — Elegance Stitched to Perfection</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({ duration: 800, once: true, offset: 100 }); </script>
+    <!-- Scroll Reveal JavaScript -->
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 100;
+            
+            revealElements.forEach(element => {
+                const revealTop = element.getBoundingClientRect().top;
+                if (revealTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // Image reveal animation for gallery
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                modal.style.zIndex = '2000';
+                modal.style.cursor = 'pointer';
+                modal.innerHTML = `<img src="${imgSrc}" style="max-width: 90%; max-height: 90%; border-radius: 10px; animation: zoomIn 0.3s ease;">`;
+                modal.addEventListener('click', () => modal.remove());
+                document.body.appendChild(modal);
+            });
+        });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255,255,255,0.98)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.95)';
+                navbar.style.boxShadow = '0 1px 12px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
 </body>
 </html>
