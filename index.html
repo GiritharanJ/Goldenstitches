@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Golden Stitches | Tailor & Boutique</title>
+    <!-- Tailwind CSS + Google Fonts + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .playfair { font-family: 'Playfair Display', serif; }
+        body { background: #fefcf8; }
+        .gold-gradient { background: linear-gradient(135deg, #fca726 0%, #e69500 100%); }
+        .nav-active { border-bottom: 2px solid #fca726; color: #0440b0 !important; }
+        .btn-wa { background-color: #25D366; transition: all 0.3s ease; }
+        .btn-wa:hover { background-color: #1da15a; transform: scale(1.02); box-shadow: 0 10px 20px -5px rgba(37,211,102,0.4); }
+        .btn-gold { background: #fca726; transition: all 0.3s ease; }
+        .btn-gold:hover { background: #e69500; transform: translateY(-2px); box-shadow: 0 15px 25px -10px rgba(252,167,38,0.5); }
+        .service-card, .gallery-item { transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15); }
+        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2); cursor: pointer; }
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; z-index: 999; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+        .hero-bg { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1564257631407-4deb1f99d992?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center 30%; }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fadeSlideUp 0.8s ease-out forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services." target="_blank" class="floating-wa inline-block bg-green-500 text-white p-4 rounded-full shadow-2xl">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-5 md:px-10 py-4 flex justify-between items-center flex-wrap">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-needle text-3xl text-[#0440b0]"></i>
+                <span class="text-2xl font-bold playfair text-[#0440b0]">Golden<span class="text-[#fca726]">Stitches</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                <a href="index.html" class="nav-active pb-1">Home</a>
+                <a href="services.html" class="hover:text-[#0440b0] transition">Services</a>
+                <a href="products.html" class="hover:text-[#0440b0] transition">Gallery</a>
+            </div>
+            <div class="flex space-x-3">
+                <a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="text-gray-600 hover:text-pink-500 text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="text-gray-600 hover:text-blue-700 text-xl"><i class="fab fa-facebook"></i></a>
+                <a href="tel:+917826085333" class="bg-[#0440b0] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hidden sm:inline-block">Call Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen min-h-[650px] flex items-center relative">
+        <div class="container mx-auto px-6 md:px-12 text-white">
+            <div class="max-w-2xl">
+                <span class="inline-block bg-[#fca726]/90 text-black px-4 py-1 rounded-full text-sm font-semibold tracking-wide mb-4 animate-fade-up">✨ Since 2022</span>
+                <h1 class="text-5xl md:text-7xl font-bold playfair mb-5 leading-tight animate-fade-up delay-100">Custom Tailoring <br> for <span class="text-[#fca726]">Elegant Women</span></h1>
+                <p class="text-lg md:text-xl text-gray-100 mb-8 animate-fade-up delay-200">Perfect Fit • Modern Designs • Traditional Craftsmanship. Stitched just for you.</p>
+                <div class="flex flex-wrap gap-5 animate-fade-up delay-300">
+                    <a href="https://wa.me/917826085333?text=I'd%20like%20to%20book%20a%20tailoring%20service" target="_blank" class="btn-wa text-white px-7 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg"><i class="fab fa-whatsapp text-xl"></i> 📲 WhatsApp Order</a>
+                    <a href="products.html" class="border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white hover:text-[#0440b0] transition-all flex items-center gap-2"><i class="fas fa-tshirt"></i> 👗 View Designs</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="py-20 px-5 bg-white">
+        <div class="container mx-auto text-center max-w-5xl">
+            <div data-aos="fade-up">
+                <span class="text-[#fca726] font-semibold tracking-wider">WHAT WE OFFER</span>
+                <h2 class="text-4xl md:text-5xl playfair font-bold text-gray-800 mt-2 mb-6">Our Premium Services</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mb-12">Expert craftsmanship for every occasion — from daily wear to wedding glamour.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-md">
+                    <div class="h-52 overflow-hidden"><img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Women's Tops"></div>
+                    <div class="p-6 text-left">
+                        <i class="fas fa-female text-3xl text-[#0440b0] mb-3"></i>
+                        <h3 class="text-xl font-bold">Women’s Tops & Blouses</h3>
+                        <p class="text-gray-500 text-sm mt-2">Tailored to your exact measurements, latest patterns & designer cuts.</p>
+                        <a href="https://wa.me/917826085333?text=I'm%20interested%20in%20Women's%20Tops" target="_blank" class="inline-flex items-center text-[#fca726] font-semibold mt-4 hover:gap-2 transition-all gap-1">Enquire on WhatsApp <i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- Service Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-md">
+                    <div class="h-52 overflow-hidden"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Saree Blouses"></div>
+                    <div class="p-6 text-left">
+                        <i class="fas fa-saree text-3xl text-[#0440b0] mb-3"></i>
+                        <h3 class="text-xl font-bold">Saree Blouses & Aari Work</h3>
+                        <p class="text-gray-500 text-sm mt-2">Intricate Aari, embroidery, designer backs — perfect wedding touch.</p>
+                        <a href="https://wa.me/917826085333?text=Saree%20blouse%20stitching%20inquiry" target="_blank" class="inline-flex items-center text-[#fca726] font-semibold mt-4 hover:gap-2 transition-all gap-1">Enquire on WhatsApp <i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- Service Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-md">
+                    <div class="h-52 overflow-hidden"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Punjabi Suits"></div>
+                    <div class="p-6 text-left">
+                        <i class="fas fa-dharmachakra text-3xl text-[#0440b0] mb-3"></i>
+                        <h3 class="text-xl font-bold">Punjabi Suits & Dresses</h3>
+                        <p class="text-gray-500 text-sm mt-2">Latest Patiala, straight-cut, floor-length suits with exquisite finish.</p>
+                        <a href="https://wa.me/917826085333?text=Punjabi%20suit%20order" target="_blank" class="inline-flex items-center text-[#fca726] font-semibold mt-4 hover:gap-2 transition-all gap-1">Enquire on WhatsApp <i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="services.html" class="btn-gold text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 shadow-md">View All Services <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview (3 columns) -->
+    <section class="py-20 px-5 bg-[#fef8f0]">
+        <div class="container mx-auto">
+            <div data-aos="fade-up" class="text-center">
+                <span class="text-[#fca726] font-semibold">OUR STITCHED ART</span>
+                <h2 class="text-4xl md:text-5xl playfair font-bold text-gray-800 mt-2 mb-4">Recent Masterpieces</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mb-12">Real designs stitched for our lovely customers — quality you can see.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div data-aos="zoom-in" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72"><img src="https://images.unsplash.com/photo-1621609764095-b32bbe35a3d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Blouse design"></div>
+                <div data-aos="zoom-in" data-aos-delay="100" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72"><img src="https://images.unsplash.com/photo-1583391733956-6c1828f9988a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Wedding dress"></div>
+                <div data-aos="zoom-in" data-aos-delay="200" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72"><img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Kids dress"></div>
+                <div data-aos="zoom-in" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Aari work"></div>
+                <div data-aos="zoom-in" data-aos-delay="100" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72"><img src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Punjabi suit"></div>
+                <div data-aos="zoom-in" data-aos-delay="200" class="gallery-item rounded-xl overflow-hidden shadow-lg h-72"><img src="https://images.unsplash.com/photo-1595425970375-b5fcdb1ae5ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Embroidered dress"></div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="products.html" class="border-2 border-[#0440b0] text-[#0440b0] px-8 py-3 rounded-full font-semibold hover:bg-[#0440b0] hover:text-white transition-all inline-flex items-center gap-2">Explore Full Gallery <i class="fas fa-images"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us + Testimonials -->
+    <section class="py-20 px-5 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-[#fca726] font-semibold">WHY WE SHINE</span>
+                    <h2 class="text-4xl playfair font-bold text-gray-800 mt-2 mb-6">Perfect Fit, Timeless Craft</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Perfect fitting guarantee</h4><p class="text-gray-500">Two trial fittings & precision measurements.</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-scroll text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Experienced Master Tailor</h4><p class="text-gray-500">10+ years of boutique & bridal tailoring.</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-rupee-sign text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Affordable Luxury</h4><p class="text-gray-500">Premium quality at budget-friendly prices.</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-palette text-[#fca726] text-2xl mt-1"></i><div><h4 class="font-bold">Custom Design Support</h4><p class="text-gray-500">Bring any reference photo — we stitch it.</p></div></div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="bg-[#0440b0] text-white p-8 rounded-3xl shadow-2xl">
+                    <i class="fas fa-quote-left text-4xl text-[#fca726] opacity-70"></i>
+                    <p class="text-xl italic mt-4 mb-6">"Golden Stitches gave me the most stunning wedding lehenga! The fitting was perfect and the Aari work was beyond my expectations. Highly recommended!"</p>
+                    <div class="flex items-center gap-3"><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><i class="fas fa-star text-[#fca726]"></i><span class="ml-2 font-medium">— Priyadarshini R.</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Social Section -->
+    <section class="py-16 px-5 bg-gray-900 text-white">
+        <div class="container mx-auto max-w-5xl text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl playfair font-bold mb-6">Stitch Your Style Today</h2>
+                <p class="text-gray-300 mb-10">Visit our studio or reach out on WhatsApp — we’re just a message away.</p>
+                <div class="flex flex-wrap justify-center gap-6 mb-12">
+                    <div class="bg-gray-800 p-5 rounded-2xl w-64"><i class="fas fa-map-marker-alt text-[#fca726] text-2xl mb-2 block"></i><p class="font-semibold">Address</p><p class="text-sm text-gray-300">24 Kilvelur-Katchanam Road, Tamil Nadu, India</p></div>
+                    <div class="bg-gray-800 p-5 rounded-2xl w-64"><i class="fas fa-phone-alt text-[#fca726] text-2xl mb-2 block"></i><p class="font-semibold">Call / WhatsApp</p><p class="text-sm">+91 78260 85333</p></div>
+                    <div class="bg-gray-800 p-5 rounded-2xl w-64"><i class="fab fa-whatsapp text-[#25D366] text-2xl mb-2 block"></i><p class="font-semibold">WhatsApp Chat</p><a href="https://wa.me/917826085333" class="text-sm text-[#fca726]">Click to message →</a></div>
+                </div>
+                <div class="flex justify-center space-x-6 text-3xl">
+                    <a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="hover:text-pink-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/917826085333" class="hover:text-green-400 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="mt-10">
+                    <iframe class="w-full max-w-3xl mx-auto rounded-xl h-64" src="https://maps.google.com/maps?q=Kilvelur-Katchanam%20Road%2C%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-400 py-8 text-center text-sm">
+        <p>© 2025 Golden Stitches Tailor & Boutique — Elegance Stitched to Perfection</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init({ duration: 800, once: true, offset: 100 }); </script>
+</body>
+</html>
