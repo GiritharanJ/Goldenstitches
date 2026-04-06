@@ -10,6 +10,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+        /* Right side navbar */
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+/* Social icons */
+
+.social-icon{
+font-size:20px;
+color:#6b7280;
+transition:0.3s;
+}
+
+.social-icon:hover{
+transform:scale(1.2);
+}
+
+.social-icon .fa-instagram:hover{
+color:#e4405f;
+}
+
+.social-icon .fa-facebook:hover{
+color:#1877f2;
+}
+/* Mobile responsive */
+@media (max-width:768px){
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+gap:20px;
+padding:20px;
+display:none;
+}
+.nav-links.active{
+display:flex;
+}
+.menu-toggle{
+display:block;
+}
+.nav-right{
+flex-direction:column;
+gap:15px;
+}
+}
         /* ========== RESET & BASE ========== */
         * {
             margin: 0;
@@ -906,7 +957,18 @@ Call Now
         <span class="modal-close">&times;</span>
         <img id="modalImg" src="" alt="Gallery Image">
     </div>
+<script>
 
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function(){
+
+navLinks.classList.toggle("active");
+
+});
+
+</script>
     <script>
         // Gallery filtering
         const btns = document.querySelectorAll('.category-btn');
