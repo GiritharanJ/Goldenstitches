@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+        #mobileMenu{
+transition:all 0.3s ease;
+}
         /* ========== RESET & BASE ========== */
         * {
             margin: 0;
@@ -756,21 +759,53 @@
     </a>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-needle"></i>
-                <span>Golden<span>Stitches</span></span>
-            </div>
-            <div class="nav-links">
-                <a href="index.html" class="nav-active">Home</a>
-                <a href="services.html">Services</a>
-                <a href="products.html">Gallery</a>
-                <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services" target="_blank" class="btn-wa-nav">WhatsApp Now</a>
-                <a href="tel:+917826085333" class="btn-call-nav">Call Now</a>
-            </div>
-        </div>
-    </nav>
+<nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+<div class="container mx-auto px-5 md:px-10 py-4 flex justify-between items-center">
+<!-- Logo -->
+<div class="flex items-center space-x-2">
+<i class="fas fa-needle text-3xl text-[#0440b0]"></i>
+<span class="text-2xl font-bold playfair text-[#0440b0]">
+Golden<span class="text-[#fca726]">Stitches</span>
+</span>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex space-x-8 text-gray-700 font-medium">
+<a href="index.html" class="nav-active pb-1">Home</a>
+<a href="services.html" class="hover:text-[#0440b0] transition">Services</a>
+<a href="products.html" class="hover:text-[#0440b0] transition">Gallery</a>
+</div>
+<!-- Right Buttons -->
+<div class="hidden md:flex items-center space-x-3">
+<a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="text-gray-600 hover:text-pink-500 text-xl">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="text-gray-600 hover:text-blue-700 text-xl">
+<i class="fab fa-facebook"></i>
+</a>
+<a href="https://wa.me/917826085333" target="_blank"
+class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow hover:bg-green-600 transition">
+WhatsApp Now
+</a>
+</div>
+<!-- Mobile Menu Button -->
+<button id="menuBtn" class="md:hidden text-3xl text-gray-700">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+<a href="index.html" class="block px-6 py-3 border-b">Home</a>
+<a href="services.html" class="block px-6 py-3 border-b">Services</a>
+<a href="products.html" class="block px-6 py-3 border-b">Gallery</a>
+<a href="https://wa.me/917826085333"
+class="block px-6 py-3 text-green-600 font-semibold">
+WhatsApp
+</a>
+</div>
+</nav>
+
+
+    
 
     <!-- Hero Section with Parallax -->
     <section class="hero">
@@ -944,6 +979,14 @@
     </footer>
 
     <!-- Scroll Reveal JavaScript -->
+    <script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+mobileMenu.classList.toggle("hidden");
+});
+</script>
     <script>
         // Scroll reveal animation
         const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
