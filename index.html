@@ -9,15 +9,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-       /* MOBILE MENU ICON */
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer;
-color:#0440b0;
+     /* Right side navbar */
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:14px;
 }
-/* MOBILE RESPONSIVE */
+
+/* Social icons */
+
+.social-icon{
+font-size:20px;
+color:#6b7280;
+transition:0.3s;
+}
+
+.social-icon:hover{
+transform:scale(1.2);
+}
+
+.social-icon .fa-instagram:hover{
+color:#e4405f;
+}
+
+.social-icon .fa-facebook:hover{
+color:#1877f2;
+}
+
+/* Mobile responsive */
+
 @media (max-width:768px){
+
 .nav-links{
 position:absolute;
 top:70px;
@@ -25,18 +48,24 @@ left:0;
 width:100%;
 background:white;
 flex-direction:column;
-align-items:center;
 gap:20px;
-padding:20px 0;
+padding:20px;
 display:none;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
+
 .nav-links.active{
 display:flex;
 }
+
 .menu-toggle{
 display:block;
 }
+
+.nav-right{
+flex-direction:column;
+gap:15px;
+}
+
 }
         /* ========== RESET & BASE ========== */
         * {
@@ -797,15 +826,23 @@ display:block;
 <a href="index.html" class="nav-active">Home</a>
 <a href="services.html">Services</a>
 <a href="products.html">Gallery</a>
- <div class="flex space-x-3">
-                <a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="text-gray-600 hover:text-pink-500 text-xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="text-gray-600 hover:text-blue-700 text-xl"><i class="fab fa-facebook"></i></a>
-                 <a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services"
-         target="_blank"
-         class="bg-green-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow hover:bg-green-600 transition">
-         WhatsApp Now
-      </a>
-                <a href="tel:+917826085333" class="bg-[#0440b0] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hidden sm:inline-block">Call Now</a>
+<!-- Social + Buttons -->
+<div class="nav-right">
+<a href="https://www.instagram.com/golden_stitches2022/" target="_blank" class="social-icon">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://www.facebook.com/profile.php?id=100022126298072" target="_blank" class="social-icon">
+<i class="fab fa-facebook"></i>
+</a>
+<a href="https://wa.me/917826085333?text=Hi%20Golden%20Stitches!%20I'm%20interested%20in%20your%20tailoring%20services"
+target="_blank"
+class="btn-wa-nav">
+WhatsApp Now
+</a>
+<a href="tel:+917826085333" class="btn-call-nav">
+Call Now
+</a>
+</div>
 </div>
 <!-- Mobile Menu Icon -->
 <div class="menu-toggle" id="menuBtn">
@@ -989,7 +1026,7 @@ display:block;
     </footer>
 
     <!-- Scroll Reveal JavaScript -->
-   <script>
+ <script>
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 menuBtn.addEventListener("click", function(){
