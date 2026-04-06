@@ -10,15 +10,70 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* Right side navbar */
+    /* ================= NAVBAR ================= */
 
-.nav-right{
-display:flex;
-align-items:center;
-gap:14px;
+.navbar{
+background:#ffffff;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid #eee;
 }
 
-/* Social icons */
+.nav-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+max-width:1280px;
+margin:auto;
+padding:15px 25px;
+}
+
+/* ================= LOGO ================= */
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-family:'Playfair Display',serif;
+font-size:26px;
+font-weight:bold;
+color:#0440b0;
+}
+
+.logo span span{
+color:#fca726;
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+font-weight:500;
+color:#374151;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#0440b0;
+}
+
+/* Active menu */
+
+.nav-active{
+color:#0440b0;
+border-bottom:2px solid #fca726;
+padding-bottom:3px;
+}
+
+/* ================= SOCIAL ICONS ================= */
 
 .social-icon{
 font-size:20px;
@@ -30,15 +85,60 @@ transition:0.3s;
 transform:scale(1.2);
 }
 
-.social-icon .fa-instagram:hover{
+.fa-instagram:hover{
 color:#e4405f;
 }
 
-.social-icon .fa-facebook:hover{
+.fa-facebook:hover{
 color:#1877f2;
 }
-/* Mobile responsive */
+
+/* ================= WHATSAPP BUTTON ================= */
+
+.btn-wa-nav{
+background:#25D366;
+color:white;
+padding:8px 18px;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-wa-nav:hover{
+background:#1ebe5d;
+transform:scale(1.05);
+}
+
+/* ================= CALL BUTTON ================= */
+
+.btn-call-nav{
+background:#0440b0;
+color:white;
+padding:8px 18px;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-call-nav:hover{
+background:#03338a;
+}
+
+/* ================= MOBILE MENU ICON ================= */
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+color:#0440b0;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
 @media (max-width:768px){
+
 .nav-links{
 position:absolute;
 top:70px;
@@ -46,20 +146,41 @@ left:0;
 width:100%;
 background:white;
 flex-direction:column;
+align-items:center;
 gap:20px;
-padding:20px;
+padding:20px 0;
 display:none;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
+
 .nav-links.active{
 display:flex;
 }
+
 .menu-toggle{
 display:block;
 }
-.nav-right{
-flex-direction:column;
-gap:15px;
+
+/* Hide call button on mobile */
+
+.btn-call-nav{
+display:none;
 }
+
+}
+
+/* ================= TABLET RESPONSIVE ================= */
+
+@media (max-width:1024px){
+
+.nav-links{
+gap:20px;
+}
+
+.logo{
+font-size:22px;
+}
+
 }
         /* ========== RESET & BASE ========== */
         * {
